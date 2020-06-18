@@ -2,7 +2,6 @@
 
 ![avatar](/database.png)
 
-
 ## User model
 |  user  | 資料型態 |
 |  ----  | ----     |
@@ -30,3 +29,6 @@
 | create_ at| datatime |
 | update_at | datatime |
 | name | text |
+
+## 6/18
+![avatar](/6-18_db_create.png)
