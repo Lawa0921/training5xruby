@@ -1,24 +1,32 @@
-# README
+# 18銅人
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![avatar](/database.png)
 
-Things you may want to cover:
 
-* Ruby version
+## User model
+|  user  | 資料型態 |
+|  ----  | ----     |
+| name   | text     |
+| email  | text     |
+| password | text |
+| create_at | datatime |
+| update_at | datatime |
 
-* System dependencies
+## Mission model
+| mission | 資料型態 |
+| ---- | ---- |
+| name | text |
+| description | text |
+| start_at | datatime |
+| end_at | datatime |
+|create_at| datatime |
+| update_at| datatime |
+| order | enum |
+| status | enum |
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tag model
+| tag | 資料型態 |
+| ---- | ---- |
+| create_ at| datatime |
+| update_at | datatime |
+| name | text |
