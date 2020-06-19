@@ -29,12 +29,12 @@
 
   <div>
     <%= f.label :status %>
-    <%= f.select :status, ["待處理", "進行中", "已完成"] %>
+    <%= f.select :status, Mission.statuses.keys %>
   </div>
 
   <div>
     <%= f.label :order %>
-    <%= f.select :order, ["低", "中", "高"] %>
+    <%= f.select :order, Mission.orders.keys %>
   </div>
   
   <div>
@@ -43,4 +43,4 @@
 
 <% end %>
 
-<%= link_to "任務列表", missions_path%>
+<%= link_to "Mission list", missions_path%>

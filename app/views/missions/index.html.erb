@@ -1,12 +1,12 @@
-<h1>任務列表</h1>
+<h1>Mission</h1>
 <table>
   <thead>
-    <td>任務名</td>
-    <td>描述</td>
-    <td>開始時間</td>
-    <td>結束時間</td>
-    <td>狀態</td>
-    <td>優先度</td>
+    <td>Name</td>
+    <td>description</td>
+    <td>Start date</td>
+    <td>End date</td>
+    <td>Status</td>
+    <td>Order</td>
   </thead>
   <tbody>
     <% @missions.each do |mission|%>
@@ -30,13 +30,13 @@
           <%= mission.order %>
         </td>
         <td>
-          <%= link_to "檢視", mission_path(mission) %>
+          <%= link_to "show", mission_path(mission) %>
         </td>
         <td>
-          <%= link_to "編輯", edit_mission_path(mission) %>
+          <%= link_to "edit", edit_mission_path(mission) %>
         </td>
         <td>
-          <%= link_to "刪除", mission_path(mission), data: {method: "DELETE", confirm: "確定刪除嗎？"}%>
+          <%= link_to "delete", mission_path(mission), data: {method: "DELETE", confirm: "Are you sure you want to delete this mission?"}%>
         </td>
       </tr>
     <% end %>
