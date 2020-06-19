@@ -1,0 +1,11 @@
+<h1>
+  <%= @mission.name %>
+</h1>
+
+<div>
+  <%= @mission.description %>
+  <%= @mission.start_at %>
+  <%= @mission.end_at %>
+</div>
+
+<%= link_to "Mission list", missions_path%>

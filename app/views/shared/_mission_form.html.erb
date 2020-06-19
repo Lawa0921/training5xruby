@@ -1,0 +1,46 @@
+<%= form_with(model: @mission, local: true) do |f| %>
+  <% if @mission.errors.any? %>
+    <ul>
+      <% @mission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.label :start_at %>
+    <%= f.datetime_field :start_at %>
+  </div>
+
+  <div>
+    <%= f.label :end_at %>
+    <%= f.datetime_field :end_at %>
+  </div>
+
+  <div>
+    <%= f.label :status %>
+    <%= f.select :status, Mission.statuses.keys %>
+  </div>
+
+  <div>
+    <%= f.label :order %>
+    <%= f.select :order, Mission.orders.keys %>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to "Mission list", missions_path%>

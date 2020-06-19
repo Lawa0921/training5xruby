@@ -1,0 +1,46 @@
+<h1>Mission</h1>
+<table>
+  <thead>
+    <td>Name</td>
+    <td>description</td>
+    <td>Start date</td>
+    <td>End date</td>
+    <td>Status</td>
+    <td>Order</td>
+  </thead>
+  <tbody>
+    <% @missions.each do |mission|%>
+      <tr>
+        <td>
+          <%= mission.name %>
+        </td>
+        <td>
+          <%= mission.description %>
+        </td>
+        <td>
+          <%= mission.start_at %>
+        </td>
+        <td>
+          <%= mission.end_at %>
+        </td>
+        <td>
+          <%= mission.status %>
+        </td>
+        <td>
+          <%= mission.order %>
+        </td>
+        <td>
+          <%= link_to "show", mission_path(mission) %>
+        </td>
+        <td>
+          <%= link_to "edit", edit_mission_path(mission) %>
+        </td>
+        <td>
+          <%= link_to "delete", mission_path(mission), data: {method: "DELETE", confirm: "Are you sure you want to delete this mission?"}%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "new mission", new_mission_path %>
