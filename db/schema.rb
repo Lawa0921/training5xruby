@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_06_18_235947) do
   create_table "missions", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.time "start_at"
-    t.time "end_at"
+    t.datetime "start_at"
+    t.datetime "end_at"
     t.integer "order"
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false

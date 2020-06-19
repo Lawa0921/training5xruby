@@ -3,8 +3,8 @@ class CreateMissions < ActiveRecord::Migration[6.0]
     create_table :missions do |t|
       t.string :name
       t.text :description
-      t.time :start_at
-      t.time :end_at
+      t.datetime :start_at
+      t.datetime :end_at
       t.integer :order
       t.integer :status
 
