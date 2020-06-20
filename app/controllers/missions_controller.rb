@@ -7,11 +7,11 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      flash[:notice] = "任務更新成功"
+      redirect_to missions_path, notice: "Updated"
     else
-      flash[:notice] = "任務更新失敗"
+      flash[:notice] = "Failure"
+      render :edit
     end
-    redirect_to missions_path
   end
 
   def edit
@@ -22,20 +22,20 @@ class MissionsController < ApplicationController
   end
 
   def create
-    mission = Mission.new(mission_params)
-    if mission.save
-      flash[:notice] = "任務創建成功"
+    @mission = Mission.new(mission_params)
+    if @mission.save
+      redirect_to missions_path, notice: "Created"
     else
-      flash[:notice] = "任務創建失敗"
+      flash[:notice] = "Failure"
+      render :new
     end
-    redirect_to missions_path
   end
 
   def destroy
     if @mission.destroy
-      flash[:notice] = "任務已刪除"
+      flash[:notice] = "Deleted"
     else
-      flash[:notice] = "任務刪除失敗"
+      flash[:notice] = "Failure"
     end
     redirect_to missions_path
   end
