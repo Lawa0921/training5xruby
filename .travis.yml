@@ -1,7 +1,11 @@
 language: ruby
 rvm:
 - 2.7.0
-install: bundle install
+install: 
+  - bundle install
+  - nvm install 10
+  - npm i -g yarn
+  - yarn
 services:
   - postgresql
 script:

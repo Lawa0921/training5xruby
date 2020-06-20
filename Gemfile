@@ -6,7 +6,7 @@ ruby '2.7.0'
 gem 'bundler', '~> 2.1'
 gem 'pg', '~> 1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+gem 'rails', '~> 6.0.3.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -55,6 +55,7 @@ group :test do
   gem 'factory_bot_rails', '~> 6.0'
   gem 'faker', '~> 2.12'
   gem 'database_cleaner', '~> 1.8'
+  gem 'rake', '~> 13.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
