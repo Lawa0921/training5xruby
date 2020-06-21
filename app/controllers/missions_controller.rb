@@ -7,9 +7,9 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to missions_path, notice: "Updated"
+      redirect_to missions_path, notice: t('missions.update')
     else
-      flash[:notice] = "Failure"
+      flash[:notice] = t('missions.failure')
       render :edit
     end
   end
@@ -24,18 +24,18 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
     if @mission.save
-      redirect_to missions_path, notice: "Created"
+      redirect_to missions_path, notice: t('missions.create')
     else
-      flash[:notice] = "Failure"
+      flash[:notice] = t('missions.failure')
       render :new
     end
   end
 
   def destroy
     if @mission.destroy
-      flash[:notice] = "Deleted"
+      flash[:notice] = t('missions.delete')
     else
-      flash[:notice] = "Failure"
+      flash[:notice] = t('missions.failure')
     end
     redirect_to missions_path
   end

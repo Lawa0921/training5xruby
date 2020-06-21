@@ -221,6 +221,10 @@ en:
     order: "Order"
     delete_confirm: "Are you sure you want to delete this mission?"
     new_mission: "New mission"
+    update: "Updated"
+    failure: "Failure"
+    create: "Created"
+    delete: "Deleted"
   mission:
     low: "Low"
     medium: "Medium"
