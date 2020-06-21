@@ -211,3 +211,23 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  missions: 
+    list: "Mission list"
+    name: "Name"
+    desc: "Description"
+    start: "Start"
+    end: "End"
+    status: "Status"
+    order: "Order"
+    delete_confirm: "Are you sure you want to delete this mission?"
+    new_mission: "New mission"
+  mission:
+    low: "Low"
+    medium: "Medium"
+    high: "High"
+    pending: "Pending"
+    working: "Working"
+    done: "Done"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"

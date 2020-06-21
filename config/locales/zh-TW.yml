@@ -208,3 +208,23 @@ zh-TW:
       long: "%Y年%m月%d日 %H:%M"
       short: "%m月%d日 %H:%M"
     pm: 下午
+  missions:
+    list: "任務清單"
+    name: "任務名"
+    desc: "任務內容"
+    start: "開始"
+    end: "結束"
+    status: "任務狀態"
+    order: "優先度"
+    delete_confirm: "你確定要刪除嗎？"
+    new_mission: "新增任務"
+  mission:
+    low: "低"
+    medium: "中"
+    high: "高"
+    pending: "待處理"
+    working: "處理中"
+    done: "已完成"
+  show: "檢視"
+  edit: "編輯"
+  delete: "刪除"
