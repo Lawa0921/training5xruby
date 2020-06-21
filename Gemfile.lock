@@ -71,9 +71,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    capybara-screenshot (1.0.24)
-      capybara (>= 1.0, < 4)
-      launchy
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
@@ -94,8 +91,6 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    launchy (2.5.0)
-      addressable (~> 2.7)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -234,7 +229,6 @@ DEPENDENCIES
   bundler (~> 2.1)
   byebug
   capybara (~> 3.32)
-  capybara-screenshot (~> 1.0)
   database_cleaner (~> 1.8)
   factory_bot_rails (~> 6.0)
   faker (~> 2.12)
@@ -243,7 +237,6 @@ DEPENDENCIES
   pg (~> 1.2)
   puma (~> 4.1)
   rails (~> 6.0.3.2)
-  rake (~> 13.0)
   rspec-rails (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
