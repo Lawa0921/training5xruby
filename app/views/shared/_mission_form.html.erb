@@ -8,32 +8,32 @@
   <% end %>
 
   <div>
-    <%= f.label :name%>
+    <%= f.label :name, t("missions.name")%>
     <%= f.text_field :name%>
   </div>
 
   <div>
-    <%= f.label :description %>
+    <%= f.label :description, t("missions.desc") %>
     <%= f.text_field :description %>
   </div>
 
   <div>
-    <%= f.label :start_at %>
+    <%= f.label :start_at, t("missions.start") %>
     <%= f.datetime_field :start_at %>
   </div>
 
   <div>
-    <%= f.label :end_at %>
+    <%= f.label :end_at, t("missions.end") %>
     <%= f.datetime_field :end_at %>
   </div>
 
   <div>
-    <%= f.label :status %>
+    <%= f.label :status, t("missions.status")%>
     <%= f.select :status, Mission.statuses.keys %>
   </div>
 
   <div>
-    <%= f.label :order %>
+    <%= f.label :order, t("missions.order") %>
     <%= f.select :order, Mission.orders.keys %>
   </div>
   
@@ -43,4 +43,4 @@
 
 <% end %>
 
-<%= link_to "Mission list", missions_path%>
+<%= link_to t("missions.list"), missions_path%>

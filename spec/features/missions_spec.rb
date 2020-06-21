@@ -8,14 +8,18 @@ RSpec.feature "Missions", type: :feature do
     context "when create" do
       before do
         visit root_path
-        click_link 'new mission'
+        click_link I18n.t("missions.new_mission")
         page.fill_in "mission[name]", with: "Example name"
         page.fill_in "mission[description]", with: "Example description"
-        click_button "Create Mission"
+        click_button create_button
       end
 
       it "should be create" do
         expect(page).to have_content 'Example name'
+      end
+
+      def create_button
+        I18n.t('helpers.submit.create', model: "Mission")
       end
     end
 
@@ -23,11 +27,11 @@ RSpec.feature "Missions", type: :feature do
       before do
         mission
         visit root_path
-        click_link 'delete'
+        click_link I18n.t("delete")
       end
 
       it "should be delete" do
-        expect(page).to have_content 'Deleted'
+        expect(page).to have_content I18n.t("missions.delete")
         expect(page).not_to have_content 'test'
       end
     end
@@ -36,15 +40,19 @@ RSpec.feature "Missions", type: :feature do
       before  do
         mission
         visit root_path
-        click_link 'edit'
+        click_link I18n.t("edit")
         page.fill_in "mission[name]", with: "m2"
         page.fill_in "mission[description]", with: "m2"
-        click_button 'Update Mission'
+        click_button update_button
       end
       
       it "should be update" do
         expect(page).not_to have_content 'test'
         expect(page).to have_content 'm2'
+      end
+
+      def update_button
+        I18n.t('helpers.submit.update', model: "Mission")
       end
     end
   end
