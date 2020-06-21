@@ -232,6 +232,8 @@ DEPENDENCIES
   database_cleaner (~> 1.8)
   factory_bot_rails (~> 6.0)
   faker (~> 2.12)
+  i18n (~> 1.8)
+
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (~> 1.2)
