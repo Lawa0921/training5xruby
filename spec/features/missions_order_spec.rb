@@ -8,6 +8,7 @@ RSpec.feature "Missions Order", type: :feature do
         create(:mission, created_at: Time.now, name: "secord")
         Timecop.travel(Time.local(2020, 6, 14, 10, 0, 0))
         create(:mission, created_at: Time.now, name: "last")
+        Timecop.return
         visit root_path
       end
       it "依照創建時間排序" do
