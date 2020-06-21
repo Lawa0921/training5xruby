@@ -51,11 +51,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'capybara-screenshot', '~> 1.0'
   gem 'factory_bot_rails', '~> 6.0'
   gem 'faker', '~> 2.12'
   gem 'database_cleaner', '~> 1.8'
-  gem 'rake', '~> 13.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
