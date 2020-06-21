@@ -55,6 +55,7 @@ group :test do
   gem 'factory_bot_rails', '~> 6.0'
   gem 'faker', '~> 2.12'
   gem 'database_cleaner', '~> 1.8'
+  gem 'timecop', '~> 0.9.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
