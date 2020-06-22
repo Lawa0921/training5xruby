@@ -1,4 +1,13 @@
 <h1><%= t("missions.list") %></h1>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont, t("missions.name") %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :status_eq, t("missions.status") %>
+  <%= f.select :status_eq, Mission.statuses.map { |w| [w[0], w[1]] } %>
+
+  <%= f.submit %>
+<% end %>
 <table>
   <thead>
     <td><%= t("missions.name") %></td>

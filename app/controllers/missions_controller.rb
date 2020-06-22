@@ -2,7 +2,8 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :destroy, :update]
 
   def index
-    @missions = Mission.all.order("created_at desc")
+    @q = Mission.ransack(params[:q])
+    @missions = @q.result
   end
 
   def update
