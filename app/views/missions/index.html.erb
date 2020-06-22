@@ -5,7 +5,6 @@
 
   <%= f.label :status_eq, t("missions.status") %>
   <%= f.select :status_eq, Mission.statuses.map { |w| [w[0], w[1]] } %>
-
   <%= f.submit %>
 <% end %>
 <table>

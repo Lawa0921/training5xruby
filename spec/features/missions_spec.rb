@@ -11,6 +11,7 @@ RSpec.feature "Missions", type: :feature do
         click_link I18n.t("missions.new_mission")
         page.fill_in "mission[name]", with: "Example name"
         page.fill_in "mission[description]", with: "Example description"
+        page.fill_in "mission[start_at]", with: "#{Time.now}"
         click_button create_button
       end
 
@@ -54,6 +55,30 @@ RSpec.feature "Missions", type: :feature do
       def update_button
         I18n.t('helpers.submit.update', model: "Mission")
       end
+    end
+  end
+
+  describe "Mission search" do
+    context "search with mission name" do
+      before do
+        create(:mission, name: "find me", status: I18n.t("mission.pending"))
+        create(:mission, name: "lalala")
+        create(:mission, name: "hahaha")
+        visit root_path
+      end
+
+      it "可以搜尋到指定的 name" do
+        page.fill_in "q[name_cont]", with: "find me"
+        click_button I18n.t("ransack.search")
+        expect(page).not_to have_content("lalala")
+        expect(page).to have_content("find me")
+      end
+    end
+
+    context "search with mission status" do
+    end
+
+    context "search with mission name and status" do
     end
   end
 end

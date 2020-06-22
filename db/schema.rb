@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_235947) do
+ActiveRecord::Schema.define(version: 2020_06_22_130713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,26 +25,28 @@ ActiveRecord::Schema.define(version: 2020_06_18_235947) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.datetime "start_at"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "start_at", null: false
     t.datetime "end_at"
-    t.integer "order"
-    t.integer "status"
+    t.integer "order", null: false
+    t.integer "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_missions_on_name"
+    t.index ["status"], name: "index_missions_on_status"
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "password", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
