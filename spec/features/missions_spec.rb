@@ -11,6 +11,7 @@ RSpec.feature "Missions", type: :feature do
         click_link I18n.t("missions.new_mission")
         page.fill_in "mission[name]", with: "Example name"
         page.fill_in "mission[description]", with: "Example description"
+        page.fill_in "mission[start_at]", with: "#{Time.now}"
         click_button create_button
       end
 

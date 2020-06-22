@@ -235,3 +235,7 @@ en:
   show: "Show"
   edit: "Edit"
   delete: "Delete"
+  vaildation:
+    user:
+      email_format: "format does not match."
+        
