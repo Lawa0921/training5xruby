@@ -1,10 +1,10 @@
-<h1><%= t("missions.list") %></h1>
+<h1><%= link_to t("missions.list"), { url: nil , order_by: "created_at"} %></h1>
 <table>
   <thead>
     <td><%= t("missions.name") %></td>
     <td><%= t("missions.desc") %></td>
     <td><%= t("missions.start") %></td>
-    <td><%= t("missions.end") %></td>
+    <td><%= link_to t("missions.end"), { url: nil , order_by: "end_at"} %></td>
     <td><%= t("missions.status") %></td>
     <td><%= t("missions.order") %></td>
   </thead>
