@@ -24,10 +24,10 @@
           <%= mission.end_at %>
         </td>
         <td>
-          <%= mission.status %>
+          <%= mission_status_i18n(mission.status) %>
         </td>
         <td>
-          <%= mission.priority %>
+          <%= mission_priority_i18n(mission.priority) %>
         </td>
         <td>
           <%= link_to t("show"), mission_path(mission) %>

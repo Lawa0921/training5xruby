@@ -1,6 +1,6 @@
 class Mission < ApplicationRecord
-  enum status: [I18n.t('mission.pending'), I18n.t('mission.working'), I18n.t('mission.done')]
-  enum priority: [I18n.t("mission.low"), I18n.t("mission.medium"), I18n.t("mission.high")]
+  enum status: ["pending", "working","done"]
+  enum priority: ["low", "medium", "high"]
   has_many :tags, through: :mission_tags
   validates :name, :status, :order, :start_at, presence: true
 
