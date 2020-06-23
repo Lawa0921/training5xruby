@@ -225,6 +225,8 @@ en:
     failure: "Failure"
     create: "Created"
     delete: "Deleted"
+    new: "New mission"
+    edit: "Edit mission"
   mission:
     low: "Low"
     medium: "Medium"

@@ -11,7 +11,7 @@
   <%= f.submit %>
 <% end %>
 
-<table>
+<table class="table table-striped">
   <thead>
     <td><%= t("missions.name") %></td>
     <td><%= t("missions.desc") %></td>
@@ -19,6 +19,9 @@
     <td><%= link_to t("missions.end"), order_by: "end_at" %></td>
     <td><%= t("missions.status") %></td>
     <td><%= link_to t("missions.priority"), order_by: "priority"%></td>
+    <td><%= t("show") %></td>
+    <td><%= t("edit") %></td>
+    <td><%= t("delete") %></td>
   </thead>
   <tbody>
     <% @missions.each do |mission|%>
@@ -42,19 +45,20 @@
           <%= mission_priority_i18n(mission.priority) %>
         </td>
         <td>
-          <%= link_to t("show"), mission_path(mission) %>
+          <%= link_to t("show"), mission_path(mission), class: "btn btn-primary" %>
         </td>
         <td>
-          <%= link_to t("edit"), edit_mission_path(mission) %>
+          <%= link_to t("edit"), edit_mission_path(mission), class: "btn btn-success" %>
         </td>
         <td>
-          <%= link_to t("delete"), mission_path(mission), data: {method: "DELETE", confirm: t("missions.delete_confirm")} %>
+          <%= link_to t("delete"), mission_path(mission), data: {method: "DELETE", confirm: t("missions.delete_confirm")}, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t("missions.new_mission"), new_mission_path, class: "new-link" %>
+<%= link_to t("missions.new_mission"), new_mission_path, class: "new-link", class: "new-link btn btn-primary" %>
 
 <%= paginate @missions %>
+

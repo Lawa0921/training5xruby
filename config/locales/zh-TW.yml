@@ -222,6 +222,8 @@ zh-TW:
     failure: "失敗"
     create: "已創建"
     delete: "已刪除"
+    new: "新增任務"
+    edit: "編輯任務"
   mission:
     low: "低"
     medium: "中"

@@ -7,40 +7,40 @@
     </ul>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= f.label :name, t("missions.name")%>
-    <%= f.text_field :name%>
+    <%= f.text_field :name, class: "form-control"%>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :description, t("missions.desc") %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :start_at, t("missions.start") %>
-    <%= f.datetime_field :start_at %>
+    <%= f.datetime_field :start_at, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :end_at, t("missions.end") %>
-    <%= f.datetime_field :end_at %>
+    <%= f.datetime_field :end_at, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.label :status, t("missions.status")%>
-    <%= f.select :status, Mission.statuses.keys %>
+  <div class="form-group">
+    <%= f.label :status, t("missions.status"), for: "mission_status"  %>
+    <%= f.select :status, Mission.statuses.keys, {}, class: "form-control"%>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :priority, t("missions.priority") %> 
-    <%= f.select :priority, Mission.priorities.keys %>
+    <%= f.select :priority, Mission.priorities.keys, {}, class: "form-control" %>
   </div>
   
   <div>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 
 <% end %>
 
-<%= link_to t("missions.list"), missions_path%>
+<%= link_to t("missions.list"), missions_path, class: "btn btn-success my-3"%>
