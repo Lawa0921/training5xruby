@@ -27,9 +27,9 @@ RSpec.feature "Missions Order", type: :feature do
 
     context "Order by end_at" do
       before do
+        create(:mission, end_at: Time.local(2020, 6, 23, 0, 0, 0), name: "first")
         create(:mission, end_at: Time.local(2020, 6, 24, 0, 0, 0), name: "secord")
         create(:mission, end_at: Time.local(2020, 6, 25, 0, 0, 0), name: "last")
-        create(:mission, end_at: Time.local(2020, 6, 23, 0, 0, 0), name: "first")
         visit root_path
         click_link I18n.t("missions.end")
       end

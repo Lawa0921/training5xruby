@@ -2,11 +2,7 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :destroy, :update]
 
   def index
-    if order_missions == "created_at"
-      @missions = Mission.all.order("#{order_missions} desc")
-    else
-      @missions = Mission.all.order(order_missions)
-    end
+    @missions = Mission.with_order(params[:order_by])
   end
 
   def update
@@ -54,13 +50,5 @@ class MissionsController < ApplicationController
 
   def set_mission
     @mission = Mission.find(params[:id])
-  end
-
-  def order_missions
-    if params[:order_by].present? && params[:order_by] == "end_at"
-      params[:order_by]
-    else
-      "created_at"
-    end
   end
 end
