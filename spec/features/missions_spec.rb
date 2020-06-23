@@ -70,15 +70,44 @@ RSpec.feature "Missions", type: :feature do
       it "可以搜尋到指定的 name" do
         page.fill_in "q[name_cont]", with: "find me"
         click_button I18n.t("ransack.search")
-        expect(page).not_to have_content("lalala")
-        expect(page).to have_content("find me")
+        expect(page).not_to have_content "lalala"
+        expect(page).to have_content "find me"
       end
     end
 
     context "search with mission status" do
+      before do
+        create(:mission, status: I18n.t("mission.pending"))
+        create(:mission, status: I18n.t("mission.working"))
+        create(:mission, status: I18n.t("mission.done"))
+        visit root_path
+      end
+
+      it "可以搜尋到指定的 status" do
+        select(I18n.t("mission.pending"), from: "q[status_eq]").select_option
+        click_button I18n.t("ransack.search")
+        within 'tbody' do
+          expect(page).not_to have_content I18n.t("mission.working")
+          expect(page).to have_content I18n.t("mission.pending")
+        end
+      end
     end
 
     context "search with mission name and status" do
+      before do
+        create(:mission, status: I18n.t("mission.pending"), name: "find me")
+        create(:mission, status: I18n.t("mission.working"), name: "lalala")
+        create(:mission, status: I18n.t("mission.done"), name: "hahaha")
+        visit root_path
+      end
+
+      it "可以搜尋到指定的 name 及 status 組合" do
+        select(I18n.t("mission.pending"), from: "q[status_eq]").select_option
+        page.fill_in "q[name_cont]", with: "find me"
+        click_button I18n.t("ransack.search")
+        expect(page).to have_content "find me"
+        expect(page).not_to have_content "lalala"
+      end
     end
   end
 end
