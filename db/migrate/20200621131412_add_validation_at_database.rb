@@ -1,65 +1,31 @@
 class AddValidationAtDatabase < ActiveRecord::Migration[6.0]
   def up
-    drop_table :users
-    drop_table :mission_tags
-    drop_table :missions
-    drop_table :tags
+    change_column_null :users, :name, null: false
+    change_column_null :users, :email, null: false
+    change_column_null :users, :password, :string, null: false
+    change_column :users, :name, :string, unique: true
+    change_column :users, :email, :string, unique: true
 
-    create_table :users do |t|
-      t.string :name, null: false, unique: true
-      t.string :email, null: false, unique: true
-      t.string :password, null: false
-      t.timestamps
-    end
-    create_table :missions do |t|
-      t.string :name, null: false
-      t.text :description, null: false
-      t.datetime :start_at, null: false
-      t.datetime :end_at
-      t.integer :order, null: false
-      t.integer :status, null: false
-      t.timestamps
-    end
-    create_table :tags do |t|
-      t.string :name, null: false, unique: true
-      t.timestamps
-    end
-    create_table :mission_tags do |t|
-      t.references :mission, null: false, foreign_key: true
-      t.references :tag, null: false, foreign_key: true
-      t.timestamps
-    end
+    change_column_null :missions, :name, null: false
+    change_column_null :missions, :start_at, null: false
+    change_column_null :missions, :order, null: false
+    change_column_null :missions, :status, null: false
+
+    change_column_null :tags, :name, null: false
   end
 
   def down
-    drop_table :users
-    drop_table :mission_tags
-    drop_table :missions
-    drop_table :tags
+    change_column_null :users, :name, null: true
+    change_column_null :users, :email, null: true
+    change_column_null :users, :password, :string, null: true
+    change_column :users, :name, :string, unique: false
+    change_column :users, :email, :string, unique: false
 
-    create_table :users do |t|
-      t.string :name
-      t.string :email
-      t.string :password
-      t.timestamps
-    end
-    create_table :missions do |t|
-      t.string :name
-      t.text :description
-      t.datetime :start_at
-      t.datetime :end_at
-      t.integer :order
-      t.integer :status
-      t.timestamps
-    end
-    create_table :tags do |t|
-      t.string :name
-      t.timestamps
-    end
-    create_table :mission_tags do |t|
-      t.references :mission, null: false, foreign_key: true
-      t.references :tag, null: false, foreign_key: true
-      t.timestamps
-    end
+    change_column_null :missions, :name, null: true
+    change_column_null :missions, :start_at, null: true
+    change_column_null :missions, :order, null: true
+    change_column_null :missions, :status, null: true
+
+    change_column_null :tags, :name, null: true
   end
 end

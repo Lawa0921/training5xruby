@@ -13,6 +13,7 @@ RSpec.describe "Mission", type: :model do
         it "when name 未填" do
           tag.name = nil
           expect(tag).not_to be_valid
+          expect(tag.errors.full_messages).to include "Name #{I18n.t('errors.messages.blank')}"
         end
       end
     end

@@ -25,26 +25,26 @@ ActiveRecord::Schema.define(version: 2020_06_21_131412) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.datetime "start_at", null: false
+    t.string "name"
+    t.text "description"
+    t.datetime "start_at"
     t.datetime "end_at"
-    t.integer "order", null: false
-    t.integer "status", null: false
+    t.integer "order"
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "password", null: false
+    t.string "name"
+    t.string "email"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

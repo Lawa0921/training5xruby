@@ -232,6 +232,3 @@ zh-TW:
   show: "檢視"
   edit: "編輯"
   delete: "刪除"
-  vaildation:
-    user:
-      email_format: "格式不符"
