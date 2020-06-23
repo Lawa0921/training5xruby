@@ -44,3 +44,5 @@
 </table>
 
 <%= link_to t("missions.new_mission"), new_mission_path, class: "new-link" %>
+
+<%= paginate @missions %>

@@ -2,7 +2,7 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :destroy, :update]
 
   def index
-    @missions = Mission.with_order(params[:order_by])
+    @missions = Mission.with_order(params[:order_by]).page(params[:page]).per(5)
   end
 
   def update
