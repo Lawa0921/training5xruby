@@ -6,7 +6,7 @@
     <td><%= t("missions.start") %></td>
     <td><%= link_to t("missions.end"), order_by: "end_at" %></td>
     <td><%= t("missions.status") %></td>
-    <td><%= t("missions.order") %></td>
+    <td><%= link_to t("missions.priority"), order_by: "priority"%></td>
   </thead>
   <tbody>
     <% @missions.each do |mission|%>
@@ -27,7 +27,7 @@
           <%= mission.status %>
         </td>
         <td>
-          <%= mission.order %>
+          <%= mission.priority %>
         </td>
         <td>
           <%= link_to t("show"), mission_path(mission) %>

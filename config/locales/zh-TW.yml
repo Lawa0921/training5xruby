@@ -215,7 +215,7 @@ zh-TW:
     start: "開始"
     end: "結束"
     status: "任務狀態"
-    order: "優先度"
+    priority: "優先度"
     delete_confirm: "你確定要刪除嗎？"
     new_mission: "新增任務"
     update: "已更新"

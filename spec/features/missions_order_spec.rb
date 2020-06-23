@@ -45,5 +45,27 @@ RSpec.feature "Missions Order", type: :feature do
         end
       end
     end
+
+    context "Order by priority" do
+      before do
+        create(:mission, priority: 0, name: "last")
+        create(:mission, priority: 1, name: "secord")
+        create(:mission, priority: 2, name: "first")
+        visit root_path
+        click_link I18n.t("missions.priority")
+      end
+
+      it "依照優先度排序" do
+        within 'tbody tr:first-child' do
+          expect(page).to have_content "first"
+        end
+        within 'tbody tr:nth-child(2)' do
+          expect(page).to have_content "secord"
+        end
+        within 'tbody tr:nth-child(3)' do
+          expect(page).to have_content "last"
+        end
+      end
+    end
   end
 end

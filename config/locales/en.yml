@@ -218,7 +218,7 @@ en:
     start: "Start"
     end: "End"
     status: "Status"
-    order: "Order"
+    priority: "Priority"
     delete_confirm: "Are you sure you want to delete this mission?"
     new_mission: "New mission"
     update: "Updated"
