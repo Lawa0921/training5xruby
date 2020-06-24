@@ -1,14 +1,16 @@
 <h1>
-   <%= link_to t("missions.list"), order_by: "created_at" %>
+  <%= link_to t("missions.list"), order_by: "created_at" %>
 </h1>
+
 <%= search_form_for @q do |f| %>
   <%= f.label :name_cont, t("missions.name") %>
   <%= f.search_field :name_cont %>
 
   <%= f.label :status_eq, t("missions.status") %>
-  <%= f.select :status_eq, Mission.statuses.to_a %>
+  <%= f.select :status_eq, status_with_i18n %>
   <%= f.submit %>
 <% end %>
+
 <table>
   <thead>
     <td><%= t("missions.name") %></td>
