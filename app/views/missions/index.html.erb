@@ -1,20 +1,24 @@
-<h1><%= t("missions.list") %></h1>
+<h1>
+  <%= link_to t("missions.list"), order_by: "created_at" %>
+</h1>
+
 <%= search_form_for @q do |f| %>
   <%= f.label :name_cont, t("missions.name") %>
   <%= f.search_field :name_cont %>
 
   <%= f.label :status_eq, t("missions.status") %>
-  <%= f.select :status_eq, Mission.statuses.to_a %>
+  <%= f.select :status_eq, status_with_i18n %>
   <%= f.submit %>
 <% end %>
+
 <table>
   <thead>
     <td><%= t("missions.name") %></td>
     <td><%= t("missions.desc") %></td>
     <td><%= t("missions.start") %></td>
-    <td><%= t("missions.end") %></td>
+    <td><%= link_to t("missions.end"), order_by: "end_at" %></td>
     <td><%= t("missions.status") %></td>
-    <td><%= t("missions.order") %></td>
+    <td><%= link_to t("missions.priority"), order_by: "priority"%></td>
   </thead>
   <tbody>
     <% @missions.each do |mission|%>
@@ -32,10 +36,10 @@
           <%= mission.end_at %>
         </td>
         <td>
-          <%= mission.status %>
+          <%= mission_status_i18n(mission.status) %>
         </td>
         <td>
-          <%= mission.order %>
+          <%= mission_priority_i18n(mission.priority) %>
         </td>
         <td>
           <%= link_to t("show"), mission_path(mission) %>
@@ -52,3 +56,5 @@
 </table>
 
 <%= link_to t("missions.new_mission"), new_mission_path, class: "new-link" %>
+
+<%= paginate @missions %>

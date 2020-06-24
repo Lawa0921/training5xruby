@@ -30,11 +30,11 @@ RSpec.describe "Mission", type: :model do
           expect(mission.errors.full_messages).to include "Status #{I18n.t('errors.messages.blank')}"
         end
       end
-      context "order 欄位" do
-        it "when order 未填" do
-          mission.order = nil
+      context "priority 欄位" do
+        it "when priority 未填" do
+          mission.priority = nil
           expect(mission).not_to be_valid
-          expect(mission.errors.full_messages).to include "Order #{I18n.t('errors.messages.blank')}"
+          expect(mission.errors.full_messages).to include "Priority #{I18n.t('errors.messages.blank')}"
         end
       end
     end

@@ -3,7 +3,7 @@ class MissionsController < ApplicationController
 
   def index
     @q = Mission.ransack(params[:q])
-    @missions = @q.result
+    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5)
   end
 
   def update
@@ -46,7 +46,7 @@ class MissionsController < ApplicationController
 
   private
   def mission_params
-    params.require(:mission).permit(:name, :description, :status, :order, :start_at, :end_at)
+    params.require(:mission).permit(:name, :description, :status, :priority, :start_at, :end_at)
   end
 
   def set_mission

@@ -61,7 +61,7 @@ RSpec.feature "Missions", type: :feature do
   describe "Mission search" do
     context "search with mission name" do
       before do
-        create(:mission, name: "find me", status: I18n.t("mission.pending"))
+        create(:mission, name: "find me", status: "pending")
         create(:mission, name: "lalala")
         create(:mission, name: "hahaha")
         visit root_path
@@ -77,9 +77,9 @@ RSpec.feature "Missions", type: :feature do
 
     context "search with mission status" do
       before do
-        create(:mission, status: I18n.t("mission.pending"))
-        create(:mission, status: I18n.t("mission.working"))
-        create(:mission, status: I18n.t("mission.done"))
+        create(:mission, status: "pending")
+        create(:mission, status: "working")
+        create(:mission, status: "done")
         visit root_path
       end
 
@@ -95,9 +95,9 @@ RSpec.feature "Missions", type: :feature do
 
     context "search with mission name and status" do
       before do
-        create(:mission, status: I18n.t("mission.pending"), name: "find me")
-        create(:mission, status: I18n.t("mission.working"), name: "lalala")
-        create(:mission, status: I18n.t("mission.done"), name: "hahaha")
+        create(:mission, status: "pending", name: "find me")
+        create(:mission, status: "pending", name: "lalala")
+        create(:mission, status: "done", name: "hahaha")
         visit root_path
       end
 
