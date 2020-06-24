@@ -3,10 +3,11 @@ class MissionsController < ApplicationController
 
   def index
     @q = Mission.ransack(params[:q])
-    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5)
+    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5).includes(:user)
   end
 
   def update
+    @mission.user = User.first
     if @mission.update(mission_params)
       redirect_to missions_path, notice: t('missions.update')
     else
@@ -24,6 +25,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+    @mission.user = User.first
     if @mission.save
       redirect_to missions_path, notice: t('missions.create')
     else

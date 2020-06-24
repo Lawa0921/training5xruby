@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :missions
   validates :name, presence: true,
                    uniqueness: true,
                    length: {maximum: 32}

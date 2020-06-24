@@ -7,6 +7,7 @@ RSpec.feature "Missions", type: :feature do
 
     context "when create" do
       before do
+        user
         visit root_path
         click_link I18n.t("missions.new_mission")
         page.fill_in "mission[name]", with: "Example name"
