@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 2020_06_23_051819) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.datetime "start_at"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "start_at", null: false
     t.datetime "end_at"
-    t.integer "priority"
-    t.integer "status"
+    t.integer "priority", null: false
+    t.integer "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_missions_on_name"
@@ -38,15 +38,15 @@ ActiveRecord::Schema.define(version: 2020_06_23_051819) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "password", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
