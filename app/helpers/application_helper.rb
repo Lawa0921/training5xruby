@@ -7,19 +7,7 @@ module ApplicationHelper
     I18n.t("mission.priorities.#{priority}")
   end
 
-  def status_with_i18n
-    Mission.statuses.map {|status| mission_status_i18n(status[0])}
-  end
-
-  def priority_with_i18n
-    Mission.priorities.map {|priority| mission_priority_i18n(priority[0])}
-  end
-
-  def mission_status_with_i18n
-    Mission.statuses.keys.collect { |status| [Mission.human_enum_name(:status, status), status] }
-  end
-
-  def mission_priority_with_i18n
-    Mission.priorities.keys.collect { |priority| [Mission.human_enum_name(:priority, priority), priority] }
+  def human_enum_name(model, attr)
+    I18n.t("#{model.model_name.i18n_key}.#{attr.to_s}.#{model.send(attr)}")
   end
 end
