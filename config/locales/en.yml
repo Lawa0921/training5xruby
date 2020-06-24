@@ -228,12 +228,14 @@ en:
     new: "New mission"
     edit: "Edit mission"
   mission:
-    low: "Low"
-    medium: "Medium"
-    high: "High"
-    pending: "Pending"
-    working: "Working"
-    done: "Done"
+    statuses:
+      pending: "Pending"
+      working: "Working"
+      done: "Done"
+    priorities:
+      low: "Low"
+      medium: "Medium"
+      high: "High"
   show: "Show"
   edit: "Edit"
   delete: "Delete"

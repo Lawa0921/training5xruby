@@ -84,11 +84,11 @@ RSpec.feature "Missions", type: :feature do
       end
 
       it "可以搜尋到指定的 status" do
-        select(I18n.t("mission.pending"), from: "q[status_eq]").select_option
+        select(I18n.t("mission.statuses.pending"), from: "q[status_eq]").select_option
         click_button I18n.t("ransack.search")
         within 'tbody' do
-          expect(page).not_to have_content I18n.t("mission.working")
-          expect(page).to have_content I18n.t("mission.pending")
+          expect(page).not_to have_content I18n.t("mission.statuses.working")
+          expect(page).to have_content I18n.t("mission.statuses.pending")
         end
       end
     end
@@ -102,7 +102,7 @@ RSpec.feature "Missions", type: :feature do
       end
 
       it "可以搜尋到指定的 name 及 status 組合" do
-        select(I18n.t("mission.pending"), from: "q[status_eq]").select_option
+        select(I18n.t("mission.statuses.pending"), from: "q[status_eq]").select_option
         page.fill_in "q[name_cont]", with: "find me"
         click_button I18n.t("ransack.search")
         expect(page).to have_content "find me"

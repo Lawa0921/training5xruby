@@ -225,12 +225,14 @@ zh-TW:
     new: "新增任務"
     edit: "編輯任務"
   mission:
-    low: "低"
-    medium: "中"
-    high: "高"
-    pending: "待處理"
-    working: "處理中"
-    done: "已完成"
+    statuses:
+      pending: "待處理"
+      working: "處理中"
+      done: "已完成"
+    priorities:
+      low: "低"
+      medium: "中"
+      high: "高"
   show: "檢視"
   edit: "編輯"
   delete: "刪除"
