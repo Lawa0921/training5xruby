@@ -227,6 +227,12 @@ en:
     delete: "Deleted"
     new: "New mission"
     edit: "Edit mission"
+  users:
+    new: "New user"
+    name: "User name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password confirmation"
   mission:
     statuses:
       pending: "Pending"
@@ -239,6 +245,10 @@ en:
   show: "Show"
   edit: "Edit"
   delete: "Delete"
+  notice:
+    user:
+      create_success: "User was successfully created"
+      create_fail: "User was unable to create"
   ransack:
     search: "search"
     predicate: "predicate"
