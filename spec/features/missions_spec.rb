@@ -29,7 +29,8 @@ RSpec.feature "Missions", type: :feature do
 
     context "when destroy" do
       before do
-        mission
+        user_login(user)
+        create(:mission, user_id: user.id)
         visit root_path
         click_link I18n.t("delete")
       end
@@ -42,7 +43,8 @@ RSpec.feature "Missions", type: :feature do
 
     context "when update" do
       before  do
-        mission
+        user_login(user)
+        create(:mission, user_id: user.id)
         visit root_path
         click_link I18n.t("edit")
         page.fill_in "mission[name]", with: "m2"
@@ -67,9 +69,9 @@ RSpec.feature "Missions", type: :feature do
     end
     context "search with mission name" do
       before do
-        create(:mission, name: "find me", status: "pending")
-        create(:mission, name: "lalala")
-        create(:mission, name: "hahaha")
+        create(:mission, name: "find me", status: "pending", user_id: user.id)
+        create(:mission, name: "lalala", user_id: user.id)
+        create(:mission, name: "hahaha", user_id: user.id)
         visit root_path
       end
 
@@ -83,9 +85,9 @@ RSpec.feature "Missions", type: :feature do
 
     context "search with mission status" do
       before do
-        create(:mission, status: "pending")
-        create(:mission, status: "working")
-        create(:mission, status: "done")
+        create(:mission, status: "pending", user_id: user.id)
+        create(:mission, status: "working", user_id: user.id)
+        create(:mission, status: "done", user_id: user.id)
         visit root_path
       end
 
@@ -101,9 +103,9 @@ RSpec.feature "Missions", type: :feature do
 
     context "search with mission name and status" do
       before do
-        create(:mission, status: "pending", name: "find me")
-        create(:mission, status: "pending", name: "lalala")
-        create(:mission, status: "done", name: "hahaha")
+        create(:mission, status: "pending", name: "find me", user_id: user.id)
+        create(:mission, status: "pending", name: "lalala", user_id: user.id)
+        create(:mission, status: "done", name: "hahaha", user_id: user.id)
         visit root_path
       end
 
@@ -115,12 +117,5 @@ RSpec.feature "Missions", type: :feature do
         expect(page).not_to have_content "lalala"
       end
     end
-  end
-  private
-  def user_login(user)
-    visit new_session_path
-    fill_in("user[email]", with: "#{user.email}")
-    fill_in("user[password]", with: "#{user.password}")
-    click_button (I18n.t("users.session_new"))
   end
 end
