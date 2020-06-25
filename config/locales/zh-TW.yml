@@ -230,6 +230,7 @@ zh-TW:
     email: "電子郵件"
     password: "密碼"
     password_confirmation: "密碼確認"
+    session_new: "登入"
   mission:
     statuses:
       pending: "待處理"
@@ -316,4 +317,5 @@ zh-TW:
       blank: "為空"
       'null': "為 null"
       not_null: "不為 null"
+  home_page: "首頁"
 

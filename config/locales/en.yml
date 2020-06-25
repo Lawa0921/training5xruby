@@ -233,6 +233,7 @@ en:
     email: "Email"
     password: "Password"
     password_confirmation: "Password confirmation"
+    session_new: "Login"
   mission:
     statuses:
       pending: "Pending"
@@ -319,4 +320,5 @@ en:
       blank: "is blank"
       'null': "is null"
       not_null: "is not null"
+  home_page: "Home"
 

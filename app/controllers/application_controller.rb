@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :check_session
+  helper_method :current_user
 
   private
   def check_session
@@ -7,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @user ||= User.find_by(id: session[:login_session])
+    User.find_by(id: session[:login_session])
   end
 
   def user_params

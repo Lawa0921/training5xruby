@@ -1,0 +1,12 @@
+<h1><%= t("users.session_new")%></h1>
+<%= form_with model: @user, url: sessions_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :email, t("users.email") %>
+    <%= f.text_field :email, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, t("users.password") %>
+    <%= f.password_field :password, class: "form-control"%>
+  </div>
+  <%= f.submit t("users.session_new"), class: "btn btn-primary"%>
+<% end %>
