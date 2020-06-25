@@ -249,6 +249,7 @@ en:
     user:
       create_success: "Sign up was successfully"
       create_fail: "Sign up was unsuccessful"
+      login_fail: "Login fail"
   ransack:
     search: "search"
     predicate: "predicate"

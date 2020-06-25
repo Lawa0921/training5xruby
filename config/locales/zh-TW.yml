@@ -246,6 +246,7 @@ zh-TW:
     user:
       create_success: "註冊成功"
       create_fail: "註冊失敗"
+      login_fail: "登入失敗"
   ransack:
     search: "搜尋"
     predicate: "基於"
