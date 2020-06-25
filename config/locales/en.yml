@@ -228,7 +228,7 @@ en:
     new: "New mission"
     edit: "Edit mission"
   users:
-    new: "New user"
+    new: "Sign up"
     name: "User name"
     email: "Email"
     password: "Password"
@@ -247,8 +247,8 @@ en:
   delete: "Delete"
   notice:
     user:
-      create_success: "User was successfully created"
-      create_fail: "User was unable to create"
+      create_success: "Sign up was successfully"
+      create_fail: "Sign up was unsuccessful"
   ransack:
     search: "search"
     predicate: "predicate"

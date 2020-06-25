@@ -225,7 +225,7 @@ zh-TW:
     new: "新增任務"
     edit: "編輯任務"
   users:
-    new: "新增使用者"
+    new: "註冊"
     name: "使用者名"
     email: "電子郵件"
     password: "密碼"
@@ -244,8 +244,8 @@ zh-TW:
   delete: "刪除"
   notice:
     user:
-      create_success: "已成功創建使用者"
-      create_fail: "使用者創建失敗"
+      create_success: "註冊成功"
+      create_fail: "註冊失敗"
   ransack:
     search: "搜尋"
     predicate: "基於"
