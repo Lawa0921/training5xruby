@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :missions
-  resources :users, only: [:new, :create]
+  resource :user, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+  namespace :admin do
+    resources :users
+  end
   root "missions#index"
 end

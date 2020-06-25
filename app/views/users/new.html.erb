@@ -1,5 +1,5 @@
 <h1><%= t("users.new")%></h1>
-<%= form_with model: @user, local: true do |f| %>
+<%= form_with model: @user, url: user_path, local: true do |f| %>
   <% if @user.errors.any? %>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
