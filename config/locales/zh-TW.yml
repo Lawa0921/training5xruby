@@ -248,6 +248,7 @@ zh-TW:
       create_success: "註冊成功"
       create_fail: "註冊失敗"
       login_fail: "登入失敗"
+      logout: "已登出"
   ransack:
     search: "搜尋"
     predicate: "基於"
@@ -318,4 +319,5 @@ zh-TW:
       'null': "為 null"
       not_null: "不為 null"
   home_page: "首頁"
+  logout: "登出"
 

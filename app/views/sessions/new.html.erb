@@ -1,5 +1,5 @@
 <h1><%= t("users.session_new")%></h1>
-<%= form_with model: @user, url: sessions_path, local: true do |f| %>
+<%= form_with model: @user, url: session_path, local: true do |f| %>
   <div class="form-group">
     <%= f.label :email, t("users.email") %>
     <%= f.text_field :email, class: "form-control"%>

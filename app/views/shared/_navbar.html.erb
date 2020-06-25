@@ -16,6 +16,9 @@
         <li class="nav-item active">
           <%= link_to t("home_page"), root_path, class:"nav-link"%>
         </li>
+        <li class="nav-item active">
+          <%= link_to t("logout"), session_path, method: "DELETE", class:"nav-link"%>
+        </li>
       <% end %>
     </ul>
   </div>

@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
       redirect_to new_session_path, notice: t("notice.user.login_fail")
     end
   end
+
+  def destroy
+    reset_session
+    redirect_to new_session_path, notice: t("notice.user.logout")
+  end
 end

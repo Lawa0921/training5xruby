@@ -251,6 +251,7 @@ en:
       create_success: "Sign up was successfully"
       create_fail: "Sign up was unsuccessful"
       login_fail: "Login fail"
+      logout: "Logouted"
   ransack:
     search: "search"
     predicate: "predicate"
@@ -321,4 +322,5 @@ en:
       'null': "is null"
       not_null: "is not null"
   home_page: "Home"
+  logout: "Logout"
 
