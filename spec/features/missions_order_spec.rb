@@ -1,7 +1,10 @@
 require "rails_helper"
 RSpec.feature "Missions Order", type: :feature do
+  let(:user) { create(:user) }
   describe "#index" do
-
+    before do
+      user_login(user)
+    end
     context "Order by created_at" do
       before do
         create(:mission, created_at: Time.now, name: "first")
@@ -30,6 +33,7 @@ RSpec.feature "Missions Order", type: :feature do
         create(:mission, end_at: Time.local(2020, 6, 23, 0, 0, 0), name: "first")
         create(:mission, end_at: Time.local(2020, 6, 24, 0, 0, 0), name: "secord")
         create(:mission, end_at: Time.local(2020, 6, 25, 0, 0, 0), name: "last")
+
         visit root_path
         click_link I18n.t("missions.end")
       end
@@ -67,5 +71,13 @@ RSpec.feature "Missions Order", type: :feature do
         end
       end
     end
+  end
+
+  private
+  def user_login(user)
+    visit new_session_path
+    fill_in("user[email]", with: "#{user.email}")
+    fill_in("user[password]", with: "#{user.password}")
+    click_button (I18n.t("users.session_new"))
   end
 end

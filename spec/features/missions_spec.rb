@@ -4,7 +4,9 @@ RSpec.feature "Missions", type: :feature do
   let (:mission) { create(:mission, name: "test")}
   
   describe "Mission CRUD" do
-
+    before do
+      user_login(user)
+    end
     context "when create" do
       before do
         user
@@ -60,6 +62,9 @@ RSpec.feature "Missions", type: :feature do
   end
 
   describe "Mission search" do
+    before do
+      user_login(user)
+    end
     context "search with mission name" do
       before do
         create(:mission, name: "find me", status: "pending")
@@ -110,5 +115,12 @@ RSpec.feature "Missions", type: :feature do
         expect(page).not_to have_content "lalala"
       end
     end
+  end
+  private
+  def user_login(user)
+    visit new_session_path
+    fill_in("user[email]", with: "#{user.email}")
+    fill_in("user[password]", with: "#{user.password}")
+    click_button (I18n.t("users.session_new"))
   end
 end

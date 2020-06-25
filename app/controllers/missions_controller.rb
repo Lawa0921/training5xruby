@@ -7,7 +7,7 @@ class MissionsController < ApplicationController
   end
 
   def update
-    @mission.user = User.first
+    @mission.user = User.first # 暫時寫法，需更動
     if @mission.update(mission_params)
       redirect_to missions_path, notice: t('missions.update')
     else
@@ -25,7 +25,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
-    @mission.user = User.first
+    @mission.user = User.first # 暫時寫法，需更動
     if @mission.save
       redirect_to missions_path, notice: t('missions.create')
     else
