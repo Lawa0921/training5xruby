@@ -6,18 +6,21 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <% if current_user.blank? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to t("users.session_new"), new_session_path, class:"nav-link"%>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to t("users.new"), new_user_path, class:"nav-link"%>
         </li>
       <% else %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to t("home_page"), root_path, class:"nav-link"%>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to t("logout"), session_path, method: "DELETE", class:"nav-link"%>
+        </li>
+        <li class="nav-item mx-auto">
+          <%= link_to t("management"), session_path, class:"nav-link"%>
         </li>
       <% end %>
     </ul>
