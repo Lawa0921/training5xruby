@@ -29,12 +29,12 @@
 
   <div class="form-group">
     <%= f.label :status, t("missions.status"), for: "mission_status"  %>
-    <%= f.select :status, Mission.human_enum_collection("status"), {}, class: "form-control"%>
+    <%= f.select :status, enum_collection("mission", "status"), {}, class: "form-control"%>
   </div>
 
   <div class="form-group">
     <%= f.label :priority, t("missions.priority") %> 
-    <%= f.select :priority, Mission.human_enum_collection("priority"), {}, class: "form-control" %>
+    <%= f.select :priority, enum_collection("mission", "priority"), {}, class: "form-control" %>
   </div>
   
   <div>

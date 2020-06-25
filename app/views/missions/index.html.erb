@@ -7,7 +7,7 @@
   <%= f.search_field :name_cont %>
 
   <%= f.label :status_eq, t("missions.status") %>
-  <%= f.select :status_eq, Mission.human_enum_collection("status") %>
+  <%= f.select :status_eq, enum_collection("mission", "status") %>
 
   <%= f.submit %>
 <% end %>
@@ -40,10 +40,10 @@
           <%= mission.end_at %>
         </td>
         <td>
-          <%= Mission.human_enum_name("status", mission.status) %>
+          <%= enum_name("mission", "status", mission.status) %>
         </td>
         <td>
-          <%= Mission.human_enum_name("priority", mission.priority) %>
+          <%= enum_name("mission", "priority", mission.priority) %>
         </td>
         <td>
           <%= link_to t("show"), mission_path(mission), class: "btn btn-primary" %>
