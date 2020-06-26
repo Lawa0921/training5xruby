@@ -13,8 +13,8 @@ class User < ApplicationRecord
                        confirmation: true, length: { minimum: 4 }
 
   private
-  def check_last_admin
-    if User.admin.size == 1
+  def check_last_admin 
+    if User.admin.size == 1 && self.authority == "admin"
       errors.add(:base, I18n.t("users.last_admin"))
       throw :abort
     end
