@@ -242,6 +242,7 @@ zh-TW:
     destroy_failure: "刪除失敗"
     authority: "權限"
     switch: "切換使用者"
+    last_admin: "不能刪除最後一個管理員"
   mission:
     statuses:
       pending: "待處理"

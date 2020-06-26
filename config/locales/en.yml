@@ -245,6 +245,7 @@ en:
     destroy_failure: "Destroy fail"
     authority: "Authority"
     switch: "Switch user"
+    last_admin: "Can't delete last admin"
   mission:
     statuses:
       pending: "Pending"
