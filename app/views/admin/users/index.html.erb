@@ -10,6 +10,7 @@
     <td><%= t("show") %></td>
     <td><%= t("edit") %></td>
     <td><%= t("delete") %></td>
+    <td><%= t("users_mission_count") %></td>
   </thead>
   <tbody>
     <% @users.each do |user|%>
@@ -31,6 +32,9 @@
         </td>
         <td>
           <%= link_to t("delete"), admin_user_path(user), data: {method: "DELETE", confirm: t("users.delete_confirm")}, class: "btn btn-danger" %>
+        </td>
+        <td>
+          <%= user.missions.count %>
         </td>
       </tr>
     <% end %>
