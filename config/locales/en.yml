@@ -340,3 +340,4 @@ en:
   management: "Management page"
   commit: "Commit"
   users_mission_count: "Have missions amount"
+  check_admin: "Only admin can visit this page"

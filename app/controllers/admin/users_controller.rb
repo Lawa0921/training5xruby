@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
+  before_action :check_admin?
 
   def index
     @users = User.page(params[:page]).per(5)
