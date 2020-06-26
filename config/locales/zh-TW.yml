@@ -240,6 +240,8 @@ zh-TW:
     delete_confirm: "確定要刪除這個使用者嗎？"
     destroy: "已刪除使用者"
     destroy_failure: "刪除失敗"
+    authority: "權限"
+    switch: "切換使用者"
   mission:
     statuses:
       pending: "待處理"

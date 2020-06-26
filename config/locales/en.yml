@@ -243,6 +243,8 @@ en:
     delete_confirm: "Are you sure you want to delete this user?"
     destroy: "User destroyed"
     destroy_failure: "Destroy fail"
+    authority: "Authority"
+    switch: "Switch user"
   mission:
     statuses:
       pending: "Pending"

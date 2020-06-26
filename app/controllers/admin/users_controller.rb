@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
-  before_action :check_admin?
+  before_action :check_admin
 
   def index
     @users = User.page(params[:page]).per(5)
@@ -44,5 +44,10 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = t('users.destroy_failure')
     end
     redirect_to admin_users_path
+  end
+
+  def admin_session
+    session[:login_session] = params[:id]
+    redirect_to missions_path
   end
 end
