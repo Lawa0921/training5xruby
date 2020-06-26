@@ -238,8 +238,11 @@ en:
     created_at: "Created at"
     new_user: "New user"
     update: "User updated"
-    update_failure: "Updated fail"
+    update_failure: "Update fail"
     edit: "Edit user"
+    delete_confirm: "Are you sure you want to delete this user?"
+    destroy: "User destroyed"
+    destroy_failure: "Destroy fail"
   mission:
     statuses:
       pending: "Pending"

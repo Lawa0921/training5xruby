@@ -237,6 +237,9 @@ zh-TW:
     update: "更新使用者"
     update_failure: "更新失敗"
     edit: "編輯使用者"
+    delete_confirm: "確定要刪除這個使用者嗎？"
+    destroy: "已刪除使用者"
+    destroy_failure: "刪除失敗"
   mission:
     statuses:
       pending: "待處理"

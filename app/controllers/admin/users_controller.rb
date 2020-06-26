@@ -35,4 +35,13 @@ class Admin::UsersController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    if @user.destroy
+      flash[:notice] = t('users.destroy')
+    else
+      flash[:notice] = t('users.destroy_failure')
+    end
+    redirect_to admin_users_path
+  end
 end
