@@ -2,11 +2,12 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :destroy, :update]
 
   def index
-    @q = Mission.ransack(params[:q])
-    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5)
+    @q = current_user.missions.ransack(params[:q])
+    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5).includes(:user)
   end
 
   def update
+    @mission.user = current_user
     if @mission.update(mission_params)
       redirect_to missions_path, notice: t('missions.update')
     else
@@ -24,6 +25,7 @@ class MissionsController < ApplicationController
 
   def create
     @mission = Mission.new(mission_params)
+    @mission.user = current_user
     if @mission.save
       redirect_to missions_path, notice: t('missions.create')
     else
@@ -50,6 +52,6 @@ class MissionsController < ApplicationController
   end
 
   def set_mission
-    @mission = Mission.find(params[:id])
+    @mission = current_user.missions.find(params[:id])
   end
 end

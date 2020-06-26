@@ -225,16 +225,33 @@ en:
     failure: "Failure"
     create: "Created"
     delete: "Deleted"
+    new: "New mission"
+    edit: "Edit mission"
+  users:
+    new: "Sign up"
+    name: "User name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    session_new: "Login"
   mission:
-    low: "Low"
-    medium: "Medium"
-    high: "High"
-    pending: "Pending"
-    working: "Working"
-    done: "Done"
+    statuses:
+      pending: "Pending"
+      working: "Working"
+      done: "Done"
+    priorities:
+      low: "Low"
+      medium: "Medium"
+      high: "High"
   show: "Show"
   edit: "Edit"
   delete: "Delete"
+  notice:
+    user:
+      create_success: "Sign up was successfully"
+      create_fail: "Sign up was unsuccessful"
+      login_fail: "Login fail"
+      logout: "Logouted"
   ransack:
     search: "search"
     predicate: "predicate"
@@ -304,4 +321,8 @@ en:
       blank: "is blank"
       'null': "is null"
       not_null: "is not null"
+  home_page: "Home"
+  logout: "Logout"
+  sign_up: "Sign up"
+  management: "Management page"
 

@@ -4,9 +4,12 @@ RSpec.feature "Missions", type: :feature do
   let (:mission) { create(:mission, name: "test")}
   
   describe "Mission CRUD" do
-
+    before do
+      user_login(user)
+    end
     context "when create" do
       before do
+        user
         visit root_path
         click_link I18n.t("missions.new_mission")
         page.fill_in "mission[name]", with: "Example name"
@@ -26,7 +29,8 @@ RSpec.feature "Missions", type: :feature do
 
     context "when destroy" do
       before do
-        mission
+        user_login(user)
+        create(:mission, user_id: user.id)
         visit root_path
         click_link I18n.t("delete")
       end
@@ -39,7 +43,8 @@ RSpec.feature "Missions", type: :feature do
 
     context "when update" do
       before  do
-        mission
+        user_login(user)
+        create(:mission, user_id: user.id)
         visit root_path
         click_link I18n.t("edit")
         page.fill_in "mission[name]", with: "m2"
@@ -59,11 +64,14 @@ RSpec.feature "Missions", type: :feature do
   end
 
   describe "Mission search" do
+    before do
+      user_login(user)
+    end
     context "search with mission name" do
       before do
-        create(:mission, name: "find me", status: "pending")
-        create(:mission, name: "lalala")
-        create(:mission, name: "hahaha")
+        create(:mission, name: "find me", status: "pending", user_id: user.id)
+        create(:mission, name: "lalala", user_id: user.id)
+        create(:mission, name: "hahaha", user_id: user.id)
         visit root_path
       end
 
@@ -77,32 +85,32 @@ RSpec.feature "Missions", type: :feature do
 
     context "search with mission status" do
       before do
-        create(:mission, status: "pending")
-        create(:mission, status: "working")
-        create(:mission, status: "done")
+        create(:mission, status: "pending", user_id: user.id)
+        create(:mission, status: "working", user_id: user.id)
+        create(:mission, status: "done", user_id: user.id)
         visit root_path
       end
 
       it "可以搜尋到指定的 status" do
-        select(I18n.t("mission.pending"), from: "q[status_eq]").select_option
+        select(I18n.t("mission.statuses.pending"), from: "q[status_eq]").select_option
         click_button I18n.t("ransack.search")
         within 'tbody' do
-          expect(page).not_to have_content I18n.t("mission.working")
-          expect(page).to have_content I18n.t("mission.pending")
+          expect(page).not_to have_content I18n.t("mission.statuses.working")
+          expect(page).to have_content I18n.t("mission.statuses.pending")
         end
       end
     end
 
     context "search with mission name and status" do
       before do
-        create(:mission, status: "pending", name: "find me")
-        create(:mission, status: "pending", name: "lalala")
-        create(:mission, status: "done", name: "hahaha")
+        create(:mission, status: "pending", name: "find me", user_id: user.id)
+        create(:mission, status: "pending", name: "lalala", user_id: user.id)
+        create(:mission, status: "done", name: "hahaha", user_id: user.id)
         visit root_path
       end
 
       it "可以搜尋到指定的 name 及 status 組合" do
-        select(I18n.t("mission.pending"), from: "q[status_eq]").select_option
+        select(I18n.t("mission.statuses.pending"), from: "q[status_eq]").select_option
         page.fill_in "q[name_cont]", with: "find me"
         click_button I18n.t("ransack.search")
         expect(page).to have_content "find me"

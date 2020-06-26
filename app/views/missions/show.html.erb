@@ -4,8 +4,18 @@
 
 <div>
   <%= @mission.description %>
+</div>
+<div>
   <%= @mission.start_at %>
+</div>
+<div>
   <%= @mission.end_at %>
+</div>
+<div>
+  <%= @mission.status %>
+</div>
+<div>
+  <%#= @mission.order %>
 </div>
 
 <%= link_to t("missions.list"), missions_path%>

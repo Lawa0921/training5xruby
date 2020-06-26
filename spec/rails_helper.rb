@@ -10,6 +10,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include FactoryBot::Syntax::Methods
@@ -35,5 +36,13 @@ RSpec.configure do |config|
 
   config.after(:all) do
     DatabaseCleaner.clean
+  end
+  
+  private
+  def user_login(user)
+    visit new_session_path
+    fill_in("user[email]", with: "#{user.email}")
+    fill_in("user[password]", with: "#{user.password}")
+    click_button (I18n.t("users.session_new"))
   end
 end

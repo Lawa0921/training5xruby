@@ -222,16 +222,33 @@ zh-TW:
     failure: "失敗"
     create: "已創建"
     delete: "已刪除"
+    new: "新增任務"
+    edit: "編輯任務"
+  users:
+    new: "註冊"
+    name: "使用者名"
+    email: "電子郵件"
+    password: "密碼"
+    password_confirmation: "密碼確認"
+    session_new: "登入"
   mission:
-    low: "低"
-    medium: "中"
-    high: "高"
-    pending: "待處理"
-    working: "處理中"
-    done: "已完成"
+    statuses:
+      pending: "待處理"
+      working: "處理中"
+      done: "已完成"
+    priorities:
+      low: "低"
+      medium: "中"
+      high: "高"
   show: "檢視"
   edit: "編輯"
   delete: "刪除"
+  notice:
+    user:
+      create_success: "註冊成功"
+      create_fail: "註冊失敗"
+      login_fail: "登入失敗"
+      logout: "已登出"
   ransack:
     search: "搜尋"
     predicate: "基於"
@@ -301,4 +318,8 @@ zh-TW:
       blank: "為空"
       'null': "為 null"
       not_null: "不為 null"
+  home_page: "首頁"
+  logout: "登出"
+  sign_up: "註冊"
+  management: "管理者頁面"
 
