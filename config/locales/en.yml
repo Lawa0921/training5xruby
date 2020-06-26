@@ -252,6 +252,10 @@ en:
       low: "Low"
       medium: "Medium"
       high: "High"
+  user:
+    authorities:
+      user: "User"
+      admin: "Admin"
   show: "Show"
   edit: "Edit"
   delete: "Delete"

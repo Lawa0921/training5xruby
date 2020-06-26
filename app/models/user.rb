@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :missions, dependent: :destroy
+  enum authority: ["user", "admin"]
   validates :name, presence: true,
                    uniqueness: true,
                    length: {maximum: 32}

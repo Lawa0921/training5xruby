@@ -249,6 +249,10 @@ zh-TW:
       low: "低"
       medium: "中"
       high: "高"
+  user:
+    authorities:
+      user: "一般使用者"
+      admin: "管理員"
   show: "檢視"
   edit: "編輯"
   delete: "刪除"
