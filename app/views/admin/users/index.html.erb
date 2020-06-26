@@ -38,7 +38,7 @@
           <%= user.missions.size %>
         </td>
         <td>
-          <%= link_to t("users.switch"), admin_session_path(user.id), data: {method: "POST"}, class: "btn btn-primary"%>
+            <%= link_to t("users.switch"), admin_session_path(user.id), data: {method: "POST"}, class: "btn btn-primary" unless current_user == user %>
         </td>
       </tr>
     <% end %>

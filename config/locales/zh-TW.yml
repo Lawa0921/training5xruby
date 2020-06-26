@@ -241,7 +241,7 @@ zh-TW:
     destroy: "已刪除使用者"
     destroy_failure: "刪除失敗"
     authority: "權限"
-    switch: "切換使用者"
+    switch: "切換使用者權限"
     last_admin: "不能刪除最後一個管理員"
   mission:
     statuses:
@@ -265,6 +265,7 @@ zh-TW:
       create_fail: "註冊失敗"
       login_fail: "登入失敗"
       logout: "已登出"
+      create_admin: "已切換權限"
   ransack:
     search: "搜尋"
     predicate: "基於"

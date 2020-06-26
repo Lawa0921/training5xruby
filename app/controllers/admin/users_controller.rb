@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy, :update]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :create_admin]
   before_action :check_admin
 
   def index
@@ -46,11 +46,16 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
-  def admin_session
-    session[:login_session] = params[:id]
-    redirect_to missions_path
+  def create_admin
+    if @user.admin?
+      @user.authority = "user"
+    else
+      @user.authority = "admin"
+    end
+    @user.save
+    redirect_to admin_users_path, notice: t("notice.user.create_admin")
   end
-  
+
   private
   def check_admin
     redirect_to missions_path, notice: t("check_admin") unless current_user.admin?

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :missions, dependent: :destroy
   before_destroy :check_last_admin
+
   enum authority: ["user", "admin"]
   validates :name, presence: true,
                    uniqueness: true,
@@ -10,7 +11,7 @@ class User < ApplicationRecord
                     uniqueness: true,
                     format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/}
   validates :password, presence: true,
-                       confirmation: true, length: { minimum: 4 }
+                       confirmation: true, length: { minimum: 4 }, if: :new_record?
 
   private
   def check_last_admin 
