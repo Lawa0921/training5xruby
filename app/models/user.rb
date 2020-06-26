@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :missions
+  has_many :missions, dependent: :destroy
   validates :name, presence: true,
                    uniqueness: true,
                    length: {maximum: 32}
