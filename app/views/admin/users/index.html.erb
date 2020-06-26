@@ -34,7 +34,7 @@
           <%= link_to t("delete"), admin_user_path(user), data: {method: "DELETE", confirm: t("users.delete_confirm")}, class: "btn btn-danger" %>
         </td>
         <td>
-          <%= user.missions.count %>
+          <%= user.missions.size %>
         </td>
       </tr>
     <% end %>
@@ -44,5 +44,3 @@
 <%= link_to t("users.new_user"), new_admin_user_path, class: "new-link", class: "new-link btn btn-primary" %>
 
 <%= paginate @users %>
-
-

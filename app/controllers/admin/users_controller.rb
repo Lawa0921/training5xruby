@@ -2,12 +2,12 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy, :update]
 
   def index
-    @users = User.all.page(params[:page]).per(5)
+    @users = User.page(params[:page]).per(5)
   end
 
   def show
     @q = @user.missions.ransack(params[:q])
-    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5).includes(:user)
+    @missions = @q.result.with_order(params[:order_by]).includes(:user).page(params[:page]).per(5)
   end
 
   def new
