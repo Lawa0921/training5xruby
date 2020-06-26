@@ -50,4 +50,9 @@ class Admin::UsersController < ApplicationController
     session[:login_session] = params[:id]
     redirect_to missions_path
   end
+  
+  private
+  def check_admin
+    redirect_to missions_path, notice: t("check_admin") unless current_user.admin?
+  end
 end

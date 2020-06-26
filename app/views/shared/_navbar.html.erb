@@ -19,7 +19,7 @@
         <li class="nav-item">
           <%= link_to t("logout"), session_path, method: "DELETE", class:"nav-link"%>
         </li>
-        <% if check_admin? %>
+        <% if current_user.admin? %>
           <li class="nav-item">
             <%= link_to t("management"), admin_users_path, class:"nav-link"%>
           </li>

@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   private
   def check_last_admin 
-    if User.admin.size == 1 && self.authority == "admin"
+    if User.admin.size == 1 && self.admin?
       errors.add(:base, I18n.t("users.last_admin"))
       throw :abort
     end
