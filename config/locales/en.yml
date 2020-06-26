@@ -234,6 +234,15 @@ en:
     password: "Password"
     password_confirmation: "Password confirmation"
     session_new: "Login"
+    list: "Users list"
+    created_at: "Created at"
+    new_user: "New user"
+    update: "User updated"
+    update_failure: "Update fail"
+    edit: "Edit user"
+    delete_confirm: "Are you sure you want to delete this user?"
+    destroy: "User destroyed"
+    destroy_failure: "Destroy fail"
   mission:
     statuses:
       pending: "Pending"
@@ -325,4 +334,5 @@ en:
   logout: "Logout"
   sign_up: "Sign up"
   management: "Management page"
-
+  commit: "Commit"
+  users_mission_count: "Have missions amount"

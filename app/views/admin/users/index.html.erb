@@ -1,0 +1,46 @@
+<h1>
+  <%= link_to t("users.list"), order_by: "created_at" %>
+</h1>
+
+<table class="table table-striped">
+  <thead>
+    <td><%= t("users.name") %></td>
+    <td><%= t("users.email") %></td>
+    <td><%= t("users.created_at") %></td>
+    <td><%= t("show") %></td>
+    <td><%= t("edit") %></td>
+    <td><%= t("delete") %></td>
+    <td><%= t("users_mission_count") %></td>
+  </thead>
+  <tbody>
+    <% @users.each do |user|%>
+      <tr>
+        <td>
+          <%= user.name %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+        <td>
+          <%= user.created_at %>
+        </td>
+        <td>
+          <%= link_to t("show"), admin_user_path(user), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to t("edit"), edit_admin_user_path(user), class: "btn btn-success" %>
+        </td>
+        <td>
+          <%= link_to t("delete"), admin_user_path(user), data: {method: "DELETE", confirm: t("users.delete_confirm")}, class: "btn btn-danger" %>
+        </td>
+        <td>
+          <%= user.missions.size %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t("users.new_user"), new_admin_user_path, class: "new-link", class: "new-link btn btn-primary" %>
+
+<%= paginate @users %>

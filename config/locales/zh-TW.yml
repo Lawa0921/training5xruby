@@ -231,6 +231,15 @@ zh-TW:
     password: "密碼"
     password_confirmation: "密碼確認"
     session_new: "登入"
+    list: "使用者列表"
+    created_at: "創建於"
+    new_user: "新增使用者"
+    update: "更新使用者"
+    update_failure: "更新失敗"
+    edit: "編輯使用者"
+    delete_confirm: "確定要刪除這個使用者嗎？"
+    destroy: "已刪除使用者"
+    destroy_failure: "刪除失敗"
   mission:
     statuses:
       pending: "待處理"
@@ -322,4 +331,6 @@ zh-TW:
   logout: "登出"
   sign_up: "註冊"
   management: "管理者頁面"
+  commit: "送出"
+  users_mission_count: "擁有任務數量"
 
