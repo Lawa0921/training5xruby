@@ -237,6 +237,9 @@ en:
     list: "Users list"
     created_at: "Created at"
     new_user: "New user"
+    update: "User updated"
+    update_failure: "Updated fail"
+    edit: "Edit user"
   mission:
     statuses:
       pending: "Pending"
@@ -328,4 +331,5 @@ en:
   logout: "Logout"
   sign_up: "Sign up"
   management: "Management page"
+  commit: "Commit"
 

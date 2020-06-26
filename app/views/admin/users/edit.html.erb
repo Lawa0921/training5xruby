@@ -1,6 +1,6 @@
-<h1><%= t("users.new")%></h1>
+<h1><%= t("users.edit") %></h1>
 
-<%= form_with model: @user, url: admin_users_path, local: true do |f| %>
+<%= form_with(model: @user, url: admin_user_path, local: true) do |f| %>
   <% if @user.errors.any? %>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
@@ -25,5 +25,6 @@
     <%= f.label :password_confirmation, t("users.password_confirmation")%>
     <%= f.password_field :password_confirmation, class: "form-control"%>
   </div>
-    <%= f.submit t("sign_up"), class: "btn btn-primary"%>
+    <%= f.submit t("commit"), class: "btn btn-primary"%>
 <% end %>
+
