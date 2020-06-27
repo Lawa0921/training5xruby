@@ -17,7 +17,8 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    @user.check_password_save
+    if @user.validation_success
       redirect_to admin_users_path, notice: t("notice.user.create_success")
     else
       flash[:notice] = t('notice.user.create_fail')
@@ -29,7 +30,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    @user.check_password_save
+    if @user.validation_success
+      @user.update(user_params)
       redirect_to admin_users_path, notice: t('users.update')
     else
       flash[:notice] = t('users.update_failure')

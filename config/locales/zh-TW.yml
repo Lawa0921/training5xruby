@@ -243,6 +243,9 @@ zh-TW:
     authority: "權限"
     switch: "切換使用者權限"
     last_admin: "不能刪除最後一個管理員"
+    longer: "至少需要四個字"
+    present: "必需存在"
+    confirmation: "與確認欄位不同"
   mission:
     statuses:
       pending: "待處理"

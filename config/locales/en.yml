@@ -246,6 +246,9 @@ en:
     authority: "Authority"
     switch: "Switch user authority"
     last_admin: "Can't delete last admin"
+    longer: "must be longer than 4 characters"
+    present: "must be present"
+    confirmation: "and confirmation is not seem"
   mission:
     statuses:
       pending: "Pending"
