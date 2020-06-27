@@ -254,7 +254,7 @@ zh-TW:
       high: "高"
   user:
     authorities:
-      user: "一般使用者"
+      member: "一般會員"
       admin: "管理員"
   show: "檢視"
   edit: "編輯"

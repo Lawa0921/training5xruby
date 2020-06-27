@@ -257,7 +257,7 @@ en:
       high: "High"
   user:
     authorities:
-      user: "User"
+      member: "Member"
       admin: "Admin"
   show: "Show"
   edit: "Edit"

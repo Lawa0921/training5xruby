@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :missions, dependent: :destroy
   before_destroy :check_last_admin
 
-  enum authority: ["user", "admin"]
+  enum authority: ["member", "admin"]
   validates :name, presence: true,
                    uniqueness: true,
                    length: {maximum: 32}
