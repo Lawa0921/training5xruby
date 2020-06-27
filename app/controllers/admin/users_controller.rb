@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy, :update]
+  before_action :set_user, only: [:show, :edit, :destroy, :update, :create_admin]
+  before_action :check_admin
 
   def index
     @users = User.page(params[:page]).per(5)
@@ -16,7 +17,8 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    @user.check_password_save
+    if @user.validation_success
       redirect_to admin_users_path, notice: t("notice.user.create_success")
     else
       flash[:notice] = t('notice.user.create_fail')
@@ -28,7 +30,9 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    @user.check_password_save
+    if @user.validation_success
+      @user.update(user_params)
       redirect_to admin_users_path, notice: t('users.update')
     else
       flash[:notice] = t('users.update_failure')
@@ -43,5 +47,15 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = t('users.destroy_failure')
     end
     redirect_to admin_users_path
+  end
+
+  def create_admin
+    @user.admin? ? @user.member! : @user.admin!
+    redirect_to admin_users_path, notice: t("notice.user.create_admin")
+  end
+
+  private
+  def check_admin
+    redirect_to missions_path, notice: t("check_admin") unless current_user.admin?
   end
 end

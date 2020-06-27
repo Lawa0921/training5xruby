@@ -1,28 +1,29 @@
 <h1>
-  <%= link_to t("users.list"), order_by: "created_at" %>
+  <%= t("users.list") %>
 </h1>
 
 <table class="table table-striped">
   <thead>
+    <td><%= t("users.authority") %></td>
     <td><%= t("users.name") %></td>
     <td><%= t("users.email") %></td>
-    <td><%= t("users.created_at") %></td>
     <td><%= t("show") %></td>
     <td><%= t("edit") %></td>
     <td><%= t("delete") %></td>
     <td><%= t("users_mission_count") %></td>
+    <td><%= t("users.switch") %></td>
   </thead>
   <tbody>
     <% @users.each do |user|%>
       <tr>
         <td>
+          <%= enum_name("user", "authority", user.authority) %>
+        </td>
+        <td>
           <%= user.name %>
         </td>
         <td>
           <%= user.email %>
-        </td>
-        <td>
-          <%= user.created_at %>
         </td>
         <td>
           <%= link_to t("show"), admin_user_path(user), class: "btn btn-primary" %>
@@ -35,6 +36,9 @@
         </td>
         <td>
           <%= user.missions.size %>
+        </td>
+        <td>
+            <%= link_to t("users.switch"), admin_session_path(user.id), data: {method: "POST"}, class: "btn btn-primary" unless current_user == user %>
         </td>
       </tr>
     <% end %>

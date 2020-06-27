@@ -54,8 +54,8 @@ RSpec.describe "Mission", type: :model do
       context "password 欄位" do
         it "when password 過短" do
           user.password = "123"
-          expect(user).not_to be_valid
-          expect(user.errors.full_messages).to include "Password #{I18n.t('errors.messages.too_short.other', count: 4)}"
+          user.check_password_save
+          expect(user.errors.count).to eq 2
         end
         it "when password 未填" do
           user.password = nil

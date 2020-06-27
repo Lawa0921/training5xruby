@@ -243,6 +243,12 @@ en:
     delete_confirm: "Are you sure you want to delete this user?"
     destroy: "User destroyed"
     destroy_failure: "Destroy fail"
+    authority: "Authority"
+    switch: "Switch user authority"
+    last_admin: "Can't delete last admin"
+    longer: "must be longer than 4 characters"
+    present: "must be present"
+    confirmation: "and confirmation is not seem"
   mission:
     statuses:
       pending: "Pending"
@@ -252,6 +258,10 @@ en:
       low: "Low"
       medium: "Medium"
       high: "High"
+  user:
+    authorities:
+      member: "Member"
+      admin: "Admin"
   show: "Show"
   edit: "Edit"
   delete: "Delete"
@@ -261,6 +271,7 @@ en:
       create_fail: "Sign up was unsuccessful"
       login_fail: "Login fail"
       logout: "Logouted"
+      create_admin: "Switched users authority"
   ransack:
     search: "search"
     predicate: "predicate"
@@ -336,3 +347,4 @@ en:
   management: "Management page"
   commit: "Commit"
   users_mission_count: "Have missions amount"
+  check_admin: "Only admin can visit this page"

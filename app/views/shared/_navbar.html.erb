@@ -19,9 +19,11 @@
         <li class="nav-item">
           <%= link_to t("logout"), session_path, method: "DELETE", class:"nav-link"%>
         </li>
-        <li class="nav-item mx-auto">
-          <%= link_to t("management"), admin_users_path, class:"nav-link"%>
-        </li>
+        <% if current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to t("management"), admin_users_path, class:"nav-link"%>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>

@@ -240,6 +240,12 @@ zh-TW:
     delete_confirm: "確定要刪除這個使用者嗎？"
     destroy: "已刪除使用者"
     destroy_failure: "刪除失敗"
+    authority: "權限"
+    switch: "切換使用者權限"
+    last_admin: "不能刪除最後一個管理員"
+    longer: "至少需要四個字"
+    present: "必需存在"
+    confirmation: "與確認欄位不同"
   mission:
     statuses:
       pending: "待處理"
@@ -249,6 +255,10 @@ zh-TW:
       low: "低"
       medium: "中"
       high: "高"
+  user:
+    authorities:
+      member: "一般會員"
+      admin: "管理員"
   show: "檢視"
   edit: "編輯"
   delete: "刪除"
@@ -258,6 +268,7 @@ zh-TW:
       create_fail: "註冊失敗"
       login_fail: "登入失敗"
       logout: "已登出"
+      create_admin: "已切換權限"
   ransack:
     search: "搜尋"
     predicate: "基於"
@@ -333,4 +344,5 @@ zh-TW:
   management: "管理者頁面"
   commit: "送出"
   users_mission_count: "擁有任務數量"
+  check_admin: "只有管理員可以進入這個頁面"
 

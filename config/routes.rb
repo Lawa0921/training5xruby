@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   namespace :admin do
     resources :users
+    post "session/:id", to: "users#create_admin", as: :session
   end
   root "missions#index"
 end
