@@ -7,7 +7,7 @@
   <%= f.search_field :name_cont %>
 
   <%= f.label :status_eq, t("missions.status") %>
-  <%= f.select :status_eq, enum_collection("mission", "status") %>
+  <%= f.select :status_eq, ransack_search_enum("mission", "status")%>
 
   <%= f.submit %>
 <% end %>
