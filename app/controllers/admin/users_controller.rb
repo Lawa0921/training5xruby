@@ -52,7 +52,7 @@ class Admin::UsersController < ApplicationController
     else
       @user.authority = "admin"
     end
-    @user.save
+    @user.save(validate: false)
     redirect_to admin_users_path, notice: t("notice.user.create_admin")
   end
 

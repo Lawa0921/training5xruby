@@ -11,7 +11,7 @@ class User < ApplicationRecord
                     uniqueness: true,
                     format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/}
   validates :password, presence: true,
-                       confirmation: true, length: { minimum: 4 }, if: :new_record?
+                       confirmation: true, length: { minimum: 4 }
 
   private
   def check_last_admin 
