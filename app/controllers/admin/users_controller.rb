@@ -48,7 +48,6 @@ class Admin::UsersController < ApplicationController
 
   def create_admin
     @user.admin? ? @user.member! : @user.admin!
-    @user.save
     redirect_to admin_users_path, notice: t("notice.user.create_admin")
   end
 

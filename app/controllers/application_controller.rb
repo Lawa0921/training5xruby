@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.find(params[:id])
   end
+
+  def user_password_validation(user)
+    user.errors.add(:password, "must be longer than 4 characters") if user.password.present? && user.password.length < 4
+    user.errors.add(:password, "Password must be present") if user.password.blank?
+    user.errors.add(:password, "Password and confirmation is not seem") if user.password != user.password_confirmation
+  end
 end

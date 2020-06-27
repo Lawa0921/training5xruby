@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    user_password_validation(@user)
     if @user.save
       redirect_to new_session_path, notice: t("notice.user.create_success")
     else

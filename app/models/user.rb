@@ -10,9 +10,6 @@ class User < ApplicationRecord
   validates :email, presence: true, 
                     uniqueness: true,
                     format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/}
-  validates :password, presence: true,
-                       confirmation: true, length: { minimum: 4 }
-
   private
   def check_last_admin 
     if User.admin.size == 1 && self.admin?
