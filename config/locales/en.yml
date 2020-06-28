@@ -227,6 +227,7 @@ en:
     delete: "Deleted"
     new: "New mission"
     edit: "Edit mission"
+    tag_list: "Tag list"
   users:
     new: "Sign up"
     name: "User name"

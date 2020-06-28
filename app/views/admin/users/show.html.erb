@@ -2,16 +2,12 @@
   <%= @user.name %><%= t("missions.list") %>
 </h1>
 
-<h1>
-  <%= link_to t("missions.list"), order_by: "created_at" %>
-</h1>
-
-<%= search_form_for @q, url: admin_user_path(@user) do |f| %>
+<%= search_form_for @q do |f| %>
   <%= f.label :name_cont, t("missions.name") %>
   <%= f.search_field :name_cont %>
 
   <%= f.label :status_eq, t("missions.status") %>
-  <%= f.select :status_eq, enum_collection("mission", "status") %>
+  <%= f.select :status_eq, ransack_search_enum("mission", "status")%>
 
   <%= f.submit %>
 <% end %>
@@ -24,6 +20,10 @@
     <td><%= link_to t("missions.end"), order_by: "end_at" %></td>
     <td><%= t("missions.status") %></td>
     <td><%= link_to t("missions.priority"), order_by: "priority"%></td>
+    <td><%= t("missions.tag_list") %></td>
+    <td><%= t("show") %></td>
+    <td><%= t("edit") %></td>
+    <td><%= t("delete") %></td>
   </thead>
   <tbody>
     <% @missions.each do |mission|%>
@@ -35,10 +35,10 @@
           <%= mission.description %>
         </td>
         <td>
-          <%= mission.start_at %>
+          <%= mission.start_at.strftime("%B %d, %Y") %>
         </td>
         <td>
-          <%= mission.end_at %>
+          <%= mission.end_at.strftime("%B %d, %Y") %>
         </td>
         <td>
           <%= enum_name("mission", "status", mission.status) %>
@@ -46,9 +46,23 @@
         <td>
           <%= enum_name("mission", "priority", mission.priority) %>
         </td>
+        <td>
+          <%= mission.tag_list %>
+        </td>
+        <td>
+          <%= link_to t("show"), mission_path(mission), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to t("edit"), edit_mission_path(mission), class: "btn btn-success" %>
+        </td>
+        <td>
+          <%= link_to t("delete"), mission_path(mission), data: {method: "DELETE", confirm: t("missions.delete_confirm")}, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to t("missions.new_mission"), new_mission_path, class: "new-link", class: "new-link btn btn-primary" %>
 
 <%= paginate @missions %>
