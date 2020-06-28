@@ -41,7 +41,7 @@
           <%= mission.start_at.strftime("%B %d, %Y") %>
         </td>
         <td>
-          <%= mission.end_at.strftime("%B %d, %Y") %>
+          <%= mission.end_at.strftime("%B %d, %Y") if mission.end_at.present? %>
         </td>
         <td>
           <%= enum_name("mission", "status", mission.status) %>
