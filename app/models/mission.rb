@@ -6,6 +6,8 @@ class Mission < ApplicationRecord
   belongs_to :user
   validates :name, :status, :priority, :start_at, presence: true
 
+  scope :tagged_with, -> { Tag.find_by!(name: name).missions }
+
   def self.with_order(order_by)
     if order_by == "priority"
       all.order("#{order_by} DESC")
@@ -24,7 +26,7 @@ class Mission < ApplicationRecord
     tags.map(&:name).join(', ')
   end
 
-  def self.tagged_with(name)
-    Tag.find_by!(name: name).posts
+  def ransackable_scopes(auth_object = nil)
+    [auth_object]
   end
 end
