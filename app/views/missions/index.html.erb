@@ -9,8 +9,8 @@
   <%= f.label :status_eq, t("missions.status") %>
   <%= f.select :status_eq, ransack_search_enum("mission", "status")%>
 
-  <%= f.label :tag_list_cont, t("missions.tag_list") %>
-  <%= f.search_field :tag_list_cont %>
+  <%= f.label :tags_name_cont, t("missions.tag_list") %>
+  <%= f.search_field :tags_name_cont%>
 
   <%= f.submit %>
 <% end %>
