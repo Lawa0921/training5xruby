@@ -3,7 +3,7 @@ class MissionsController < ApplicationController
 
   def index
     @q = current_user.missions.ransack(params[:q])
-    @missions = @q.result.with_order(params[:order_by]).page(params[:page]).per(5).includes(:user)
+    @missions = @q.result.with_order(params[:order_by]).includes(:user).includes(:tags).page(params[:page]).per(5)
   end
 
   def update
