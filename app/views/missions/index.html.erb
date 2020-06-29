@@ -44,10 +44,10 @@
           <%= mission.end_at.strftime("%B %d, %Y") if mission.end_at.present? %>
         </td>
         <td>
-          <%= enum_name("mission", "status", mission.status) %>
+          <%= i18n_enum("mission", "status", mission.status) %>
         </td>
         <td>
-          <%= enum_name("mission", "priority", mission.priority) %>
+          <%= i18n_enum("mission", "priority", mission.priority) %>
         </td>
         <td>
           <%= mission.tag_list %>
