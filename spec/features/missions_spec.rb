@@ -15,6 +15,7 @@ RSpec.feature "Missions", type: :feature do
         page.fill_in "mission[name]", with: "Example name"
         page.fill_in "mission[description]", with: "Example description"
         page.fill_in "mission[start_at]", with: "#{Time.now}"
+        page.fill_in "mission[end_at]", with: "#{Time.now}"
         click_button create_button
       end
 

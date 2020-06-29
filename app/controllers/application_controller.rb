@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :check_session
   helper_method :current_user, :check_admin?
+  rescue_from ActiveRecord::RecordNotFound, 
+              with: :record_not_found
 
   def check_session
     redirect_to new_session_path if not session[:login_session] 
@@ -17,5 +19,9 @@ class ApplicationController < ActionController::Base
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def record_not_found
+    render file: 'public/404.html', status: 404, layout: false
   end
 end
