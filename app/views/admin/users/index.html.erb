@@ -17,7 +17,7 @@
     <% @users.each do |user|%>
       <tr>
         <td>
-          <%= enum_name("user", "authority", user.authority) %>
+          <%= i18n_enum("user", "authority", user.authority) %>
         </td>
         <td>
           <%= user.name %>
